@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# =============================================================================
+# Author  : Tiago Bortoletto Vaz <tvaz@riseup.net>
+# Updated : Thu Nov  2 22:54:32 UTC 2023
+
 import rrdtool
 from datetime import datetime
 
@@ -70,5 +76,4 @@ def create_graph():
                             
 
 if __name__ == '__main__':          
-    print('Creating graphs...')
     create_graph()
