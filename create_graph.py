@@ -25,12 +25,13 @@ def create_graph():
                                '--font=DEFAULT:10:', \
                                f'--title=AirGradient DIY BASIC', \
                                f'--watermark={datetime.now().replace(microsecond=0)}', \
-                               '--vertical-label=Temp. (C) & Humid. (%)', \
                                '--lower-limit=0', \
                                '--right-axis=1:0', \
                                '--alt-y-grid', '--rigid', \
                                f'DEF:temp={rrd}:temp:AVERAGE', \
                                f'DEF:humid={rrd}:humid:AVERAGE', \
+                               f'DEF:voc={rrd}:voc:AVERAGE', \
+                               f'DEF:nox={rrd}:nox:AVERAGE', \
                                f'DEF:pm={rrd}:pm:AVERAGE', \
                                f'DEF:co2={rrd}:co2:AVERAGE', \
                                f'CDEF:co2_calc=co2,0.01,*', \
@@ -38,6 +39,8 @@ def create_graph():
                                'LINE1:humid#FF00FF:Humid. (%)', \
                                'LINE2:temp#0000FF:Temp. (C)', \
                                'LINE4:co2_calc#00FFFF:CO2 (ppm/100)', \
+                               'LINE5:voc#ffb91d:VOC (idx)', \
+                               'LINE6:nox#c41e3a:NOx (idx)', \
 #                               'GPRINT:temp:LAST:\tTempCur\: %5.2lf', \
 #                               'GPRINT:temp:AVERAGE:TempAvg\: %5.2lf', \
 #                               'GPRINT:temp:MAX:TempMax\: %5.2lf', \

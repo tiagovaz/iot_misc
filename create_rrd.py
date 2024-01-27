@@ -61,6 +61,8 @@ def create_rrd():
         'DS:humid:GAUGE:600:0:100',
         'DS:co2:GAUGE:600:0:5000',
         'DS:pm:GAUGE:600:0:500',
+        'DS:voc:GAUGE:600:0:5000',
+        'DS:nox:GAUGE:600:0:500',
         'RRA:MAX:0.5:1:288', # 1 day, 5min resolution
         'RRA:AVERAGE:0.5:3:672', # 7 days, 15min resolution (7 * 288 / 3) -- why 3? because 5min step * 3 = 15min
         'RRA:AVERAGE:0.5:12:720', # 30 days, 1h resolution (30 * 288 / 12)

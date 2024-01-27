@@ -25,7 +25,7 @@ def update_db(d):
         rrd_str = 'N:%s:%s' % (d['dht11'][0]['temp'], d['dht11'][0]['humid'])
     elif d['device'] == 'AIRGRADIENT_1':
         db = 'airgradient_1.rrd'
-        rrd_str = 'N:%s:%s:%s:%s' % (d['temp'], d['humid'], d['co2'], d['pm'])
+        rrd_str = 'N:%s:%s:%s:%s:%s:%s' % (d['temp'], d['humid'], d['co2'], d['pm'], d['voc'], d['nox'])
     ret = rrdtool.update(db, rrd_str);
     if DEBUG is True:
         print(rrd_str)
