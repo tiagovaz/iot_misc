@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# =============================================================================
+# Author  : Tiago Bortoletto Vaz <tvaz@riseup.net>
+# Updated : Thu Nov  2 22:54:32 UTC 2023
+
 import rrdtool
 from datetime import datetime
 
@@ -12,11 +18,11 @@ def create_graph():
         for s in scales:
             if rrd == 'airgradient_1.rrd':
                 rrdtool.graph(f'{rrd.rsplit(".", 1)[0] + f"-{s}.png"}', \
-                               '-w1024', '-h240', '-aPNG', \
+                               '-w720', '-h140', '-aPNG', \
                                '--start',  f'{resolutions[s]}', \
                                '--end', 'now', \
                                '--slope-mode', \
-                               '--font=DEFAULT:7:', \
+                               '--font=DEFAULT:10:', \
                                f'--title=AirGradient DIY BASIC', \
                                f'--watermark={datetime.now().replace(microsecond=0)}', \
                                '--vertical-label=Temp. (C) & Humid. (%)', \
@@ -32,27 +38,27 @@ def create_graph():
                                'LINE1:humid#FF00FF:Humid. (%)', \
                                'LINE2:temp#0000FF:Temp. (C)', \
                                'LINE4:co2_calc#00FFFF:CO2 (ppm/100)', \
-                               'GPRINT:temp:LAST:\tTempCur\: %5.2lf', \
-                               'GPRINT:temp:AVERAGE:TempAvg\: %5.2lf', \
-                               'GPRINT:temp:MAX:TempMax\: %5.2lf', \
-                               'GPRINT:temp:MIN:TempMin\: %5.2lf\\n', \
-                               'GPRINT:pm:LAST:\t\t\t\t\t\t               PM25Cur\: %5.2lf', \
-                               'GPRINT:pm:AVERAGE:PM25Avg\: %5.2lf', \
-                               'GPRINT:pm:MAX:PM25Max\: %5.2lf', \
-                               'GPRINT:pm:MIN:PM25Min\: %5.2lf\\n', \
-                               'GPRINT:co2_calc:LAST:\t\t\t\t\t\t               CO2Cur\: %5.2lf', \
-                               'GPRINT:co2_calc:AVERAGE: CO2Avg\: %5.2lf', \
-                               'GPRINT:co2_calc:MAX: CO2Max\: %5.2lf', \
-                               'GPRINT:co2_calc:MIN: CO2Min\: %5.2lf\\n', \
+#                               'GPRINT:temp:LAST:\tTempCur\: %5.2lf', \
+#                               'GPRINT:temp:AVERAGE:TempAvg\: %5.2lf', \
+#                               'GPRINT:temp:MAX:TempMax\: %5.2lf', \
+#                               'GPRINT:temp:MIN:TempMin\: %5.2lf\\n', \
+#                               'GPRINT:pm:LAST:\t\t\t\t\t\t               PM25Cur\: %5.2lf', \
+#                               'GPRINT:pm:AVERAGE:PM25Avg\: %5.2lf', \
+#                               'GPRINT:pm:MAX:PM25Max\: %5.2lf', \
+#                               'GPRINT:pm:MIN:PM25Min\: %5.2lf\\n', \
+#                               'GPRINT:co2_calc:LAST:\t\t\t\t\t\t               CO2Cur\: %5.2lf', \
+#                               'GPRINT:co2_calc:AVERAGE: CO2Avg\: %5.2lf', \
+#                               'GPRINT:co2_calc:MAX: CO2Max\: %5.2lf', \
+#                               'GPRINT:co2_calc:MIN: CO2Min\: %5.2lf\\n', \
                                
                             )
             else:
                 rrdtool.graph(f'{rrd.rsplit(".", 1)[0] + f"-{s}.png"}', \
-                            '-w1024', '-h240', '-aPNG', \
+                            '-w720', '-h140', '-aPNG', \
                             '--start',  f'{resolutions[s]}', \
                             '--end', 'now', \
                             '--slope-mode', \
-                            '--font=DEFAULT:7:', \
+                            '--font=DEFAULT:10:', \
                             f'--title=TEMP & HUMID ({rrd.rsplit(".", 1)[0]})', \
                             f'--watermark={datetime.now().replace(microsecond=0)}', \
                             '--vertical-label=Temp. (C) & Humid. (%)', \
@@ -70,5 +76,4 @@ def create_graph():
                             
 
 if __name__ == '__main__':          
-    print('Creating graphs...')
     create_graph()
