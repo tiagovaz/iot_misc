@@ -10,6 +10,18 @@
 #include <SensirionI2CSgp41.h>
 #include <Wire.h>
 
+//An air quality sensor that outputs a VOC index provides more actionable
+//insights. Essentially, the sensor measures VOC levels over a 24-hour period and
+//calculates the average value and assigns it VOC Index 100. Once the average is
+//calibrated, the sensor can then monitor for changes. Values are measured on a
+//range of 0-500. Values between 100 and 500 indicate deterioration, while values
+//between 0-100 suggest improvements in air quality.
+//
+//VOC Index of 100 continuously adapts to any environment. Therefore, conditions
+//that were previously interpreted as average (VOC Index = 100) are now
+//considered as air quality improvement.
+//https://www.pressac.com/insights/what-are-volatile-organic-compounds-vocs-and-why-should-you-be-monitoring-them/
+
 // Webserver setup
 ESP8266WebServer server(80);
 
