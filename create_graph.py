@@ -36,41 +36,40 @@ def create_graph():
                                f'DEF:co2={rrd}:co2:AVERAGE', \
                                f'CDEF:co2_calc=co2,0.01,*', \
                                f'CDEF:voc_calc=voc,0.1,*', \
+                               'COMMENT:----------------------------------------------------------------------------------------------------------------------', \
+                               'COMMENT:                 CUR                     MIN                     MAX                      AVG', \
+                               'COMMENT:----------------------------------------------------------------------------------------------------------------------', \
                                'AREA:pm#ffd700:PM2.5(ug/m)', \
-                               'LINE2:humid#FF00FF:Humid. (%)', \
-                               'LINE2:temp#0000FF:Temp. (C)', \
-                               'LINE2:co2_calc#FF0000:CO2 (ppm/100)', \
-                               'LINE2:voc_calc#20b2aa:VOC (idx/10)', \
-                               'LINE2:nox#654321:NOx (idx)', \
-                               'COMMENT:                 ', \
-                               'GPRINT:pm:LAST:CUR\: PM2.5\: %3.0lfug/m', \
-                               'GPRINT:humid:LAST:Humid\: %2.1lf%%', \
-                               'GPRINT:temp:LAST:Temp\: %2.1lfC', \
-                               'GPRINT:co2:LAST:CO2\: %4.0lfppm', \
-                               'GPRINT:voc:LAST:VOC\: %3.0lf', \
-                               'GPRINT:nox:LAST:NOx\: %3.0lf', \
-                               'COMMENT:                 ', \
-                               'GPRINT:pm:MIN:MIN\: PM2.5\: %3.0lfug/m', \
-                               'GPRINT:humid:MIN:Humid\: %2.1lf%%', \
-                               'GPRINT:temp:MIN:Temp\: %2.1lfC', \
-                               'GPRINT:co2:MIN:CO2\: %4.0lfppm', \
-                               'GPRINT:voc:MIN:VOC\: %3.0lf', \
-                               'GPRINT:nox:MIN:NOx\: %3.0lf', \
-                               'COMMENT:                 ', \
-                               'GPRINT:pm:MAX:MAX\: PM2.5\: %3.0lfug/m', \
-                               'GPRINT:humid:MAX:Humid\: %2.1lf%%', \
-                               'GPRINT:temp:MAX:Temp\: %2.1lfC', \
-                               'GPRINT:co2:MAX:CO2\: %4.0lfppm', \
-                               'GPRINT:voc:MAX:VOC\: %3.0lf', \
-                               'GPRINT:nox:MAX:NOx\: %3.0lf', \
-                               'COMMENT:                 ', \
-                               'GPRINT:pm:AVERAGE:AVG\: PM2.5\: %3.0lfug/m', \
-                               'GPRINT:humid:AVERAGE:Humid\: %2.1lf%%', \
-                               'GPRINT:temp:AVERAGE:Temp\: %2.1lfC', \
-                               'GPRINT:co2:AVERAGE:CO2\: %4.0lfppm', \
-                               'GPRINT:voc:AVERAGE:VOC\: %3.0lf', \
-                               'GPRINT:nox:MAX:NOx\: %3.0lf', \
-                               'COMMENT:                 ', \
+                               'GPRINT:pm:LAST:%4.0lf', \
+                               'GPRINT:pm:MIN:%22.0lf', \
+                               'GPRINT:pm:MAX:%22.0lf', \
+                               'GPRINT:pm:AVERAGE:%22.0lf                        ', \
+                               'LINE2:humid#FF00FF:Humid. (%) ', \
+                               'GPRINT:humid:LAST:%4.1lf', \
+                               'GPRINT:humid:MIN:%22.1lf', \
+                               'GPRINT:humid:MAX:%22.1lf', \
+                               'GPRINT:humid:AVERAGE:%22.0lf                        ', \
+                               'LINE2:temp#0000FF:Temp. (C)  ', \
+                               'GPRINT:temp:LAST:%4.1lf', \
+                               'GPRINT:temp:MIN:%22.1lf', \
+                               'GPRINT:temp:MAX:%22.1lf', \
+                               'GPRINT:temp:AVERAGE:%22.0lf                        ', \
+                               'LINE2:co2_calc#FF0000:CO2 ppm/100', \
+                               'GPRINT:co2_calc:LAST:%4.1lf', \
+                               'GPRINT:co2_calc:MIN:%22.1lf', \
+                               'GPRINT:co2_calc:MAX:%22.1lf', \
+                               'GPRINT:co2_calc:AVERAGE:%22.0lf                        ', \
+                               'LINE2:voc_calc#20b2aa:VOC(idx/10)', \
+                               'GPRINT:voc:LAST:%4.0lf', \
+                               'GPRINT:voc:MIN:%22.0lf', \
+                               'GPRINT:voc:MAX:%22.0lf', \
+                               'GPRINT:voc:AVERAGE:%22.0lf                        ', \
+                               'LINE2:nox#654321:NOx (idx)  ', \
+                               'GPRINT:nox:LAST:%4.0lf', \
+                               'GPRINT:nox:MIN:%22.0lf', \
+                               'GPRINT:nox:MAX:%22.0lf', \
+                               'GPRINT:nox:AVERAGE:%22.0lf                        ', \
+                               'COMMENT:----------------------------------------------------------------------------------------------------------------------', \
                             )
             else:
                 rrdtool.graph(f'{rrd.rsplit(".", 1)[0] + f"-{s}.png"}', \
