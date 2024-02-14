@@ -94,5 +94,5 @@ def create_graph():
                             'GPRINT:temp:MIN:Min\: %5.2lf\t\t\t')
                             
 
-if __name__ == '__main__':          
+if __name__ == '__main__':
     create_graph()
