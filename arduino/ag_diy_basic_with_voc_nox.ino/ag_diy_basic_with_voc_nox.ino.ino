@@ -279,10 +279,10 @@ void updateOLED() {
     if (inUSAQI){
        ln1 = "AQI:" + String(PM_TO_AQI_US(pm25));
     } else {
-       ln1 = "P" + String(pm25) + "/C" + String(Co2);
+       ln1 = "P" + String(pm25) + "V" + String(voc_index);
     }
 
-    ln2 = "V" + String(voc_index) + "/N" + String(nox_index);
+    ln2 = "C" + String(Co2) + "N" + String(nox_index);
 
       if (inF) {ln3 = String((temp* 9 / 5) + 32).substring(0,4) + " " + String(hum)+"%";
         } else {

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # =============================================================================
 # Author  : Tiago Bortoletto Vaz <tvaz@riseup.net>
-# Updated : Thu Nov  2 22:54:32 UTC 2023
+# Updated : Mon 01 Jul 2024 07:01:56 AM EDT
 
 import rrdtool
 from datetime import datetime
@@ -94,5 +94,5 @@ def create_graph():
                             'GPRINT:temp:MIN:Min\: %5.2lf\t\t\t')
                             
 
-if __name__ == '__main__':          
+if __name__ == '__main__':
     create_graph()
