@@ -8,9 +8,9 @@
 import rrdtool
 import urllib.request, json 
 
-DEVICES = ['http://10.0.0.126', # FISHINO_1
-           'http://10.0.0.127', # FISHINO_2
-           'http://10.0.0.128/json'] # AIRGRADIENT_1
+DEVICES = ['http://10.0.0.101', # FISHINO_1
+           'http://10.0.0.103', # FISHINO_2
+           'http://10.0.0.100/json'] # AIRGRADIENT_1
 
 DEBUG = False
 
